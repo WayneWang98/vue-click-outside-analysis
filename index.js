@@ -45,7 +45,7 @@ exports = module.exports = {
       // some components may have related popup item, on which we shall prevent the click outside event handler.
       // 翻译：某些组件可能有相关的弹出项，我们将在该项上阻止click outside事件处理程序。
       var elements = e.path || (e.composedPath && e.composedPath()) // 1.获取事件传播过程中的所有元素 2.解决移动端e.path可能失效的情况
-      elements && elements.length > 0 && elements.unshift(e.target) // 排除掉点击元素本身
+      elements && elements.length > 0 && elements.unshift(e.target) // 将事件触发元素本身也加入elements
 
       if (el.contains(e.target) || isPopup(vNode.context.popupItem, elements)) return // 点击到的是元素以内的区域，或者点击的是该元素中的popupItem类弹出元素
 
